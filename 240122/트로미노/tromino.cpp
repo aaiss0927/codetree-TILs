@@ -2,7 +2,7 @@
 #include <algorithm>
 using namespace std;
 
-int n;
+int n, m;
 int grid[200][200];
 
 int block(int i, int j) {
@@ -15,19 +15,19 @@ int block(int i, int j) {
 		sum = 0;
 	}
 
-	if (i + 1 < n && j + 1 < n) {
+	if (i + 1 < n && j + 1 < m) {
 		sum += (grid[i][j] + grid[i + 1][j] + grid[i + 1][j + 1]);
 		maxi = max(maxi, sum);
 		sum = 0;
 	}
 
-	if (i + 1 < n && j + 1 < n) {
+	if (i + 1 < n && j + 1 < m) {
 		sum += (grid[i][j] + grid[i + 1][j] + grid[i][j + 1]);
 		maxi = max(maxi, sum);
 		sum = 0;
 	}
 
-	if (i + 1 < n && j + 1 < n) {
+	if (i + 1 < n && j + 1 < m) {
 		sum += (grid[i][j] + grid[i][j + 1] + grid[i + 1][j + 1]);
 		maxi = max(maxi, sum);
 		sum = 0;
@@ -39,7 +39,7 @@ int block(int i, int j) {
 		sum = 0;
 	}
 
-	if (j + 2 < n) {
+	if (j + 2 < m) {
 		sum += (grid[i][j] + grid[i][j + 1] + grid[i][j + 2]);
 		maxi = max(maxi, sum);
 		sum = 0;
@@ -49,7 +49,6 @@ int block(int i, int j) {
 }
 
 int main() {
-	int m;
 	cin >> n >> m;
 
 	for (int i = 0; i < n; i++) {
