@@ -14,7 +14,7 @@ int main() {
 	}
 
 	if (n == 1 && m == 1) {
-		cout << 1;
+		cout << 2;
 		return 0;
 	}
 
