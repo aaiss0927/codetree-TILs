@@ -13,6 +13,11 @@ int main() {
 		}
 	}
 
+	if (n == 1 && m == 1) {
+		cout << 1;
+		return 0;
+	}
+
 	int ans = 0;
 
 	for (int i = 0;  i < n;  i++) {
