@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+int grid[100][100];
+
+int main() {
+	int m, n;
+	cin >> n >> m;
+
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			cin >> grid[i][j];
+		}
+	}
+
+	int ans = 0;
+
+	for (int i = 0;  i < n;  i++) {
+		int cont = 1;
+		for (int j = 1; j < n; j++) {
+			if (grid[i][j] == grid[i][j - 1]) {
+				cont++;
+			}
+			else {
+				cont = 1;
+			}
+			if (cont >= m) {
+				ans++;
+				break;
+			}
+		}
+	}
+
+	for (int i = 0; i < n; i++) {
+		int cont = 1;
+		for (int j = 1; j < n; j++) {
+			if (grid[j][i] == grid[j - 1][i]) {
+				cont++;
+			}
+			else {
+				cont = 1;
+			}
+			if (cont >= m) {
+				ans++;
+				break;
+			}
+		}
+	}
+
+	cout << ans;
+
+	return 0;
+}
