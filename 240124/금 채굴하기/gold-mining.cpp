@@ -10,32 +10,16 @@ bool check(int row, int col) {
 	return (row >= 0 && row < n && col >= 0 && col < n);
 }
 
-int find_gold(int row, int col, int k) {
+int find_gold(int i, int j, int k) {
 	int num = 0;
-
-	if (grid[row][col]) {
-		num++;
-	}
-
-	for (int i = 1; i <= k; i++) {
-		if (check(row - k, col)) {
-			if (grid[row - k][col]) {
-				num++;
-			}
-		}
-		if (check(row, col + k)) {
-			if (grid[row][col + k]) {
-				num++;
-			}
-		}
-		if (check(row + k, col)) {
-			if (grid[row + k][col]) {
-				num++;
-			}
-		}
-		if (check(row, col - k)) {
-			if (grid[row][col - k]) {
-				num++;
+	
+	for (int row = i - k; row <= i + k; row++) {
+		for (int col = j - k; col <= j + k; col++) {
+			if ((col - row >= j - i - k && col - row <= j - i + k)
+				&& (col + row >= i + j - k && col + row <= i + j + k)) {
+				if (grid[row][col]) {
+					num++;
+				}
 			}
 		}
 	}
@@ -51,7 +35,7 @@ int main() {
 			cin >> grid[i][j];
 		}
 	}
-
+	
 	int ans = 0;
 
 	for (int i = 0; i < n; i++) {
