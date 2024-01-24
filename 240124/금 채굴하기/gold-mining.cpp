@@ -16,7 +16,8 @@ int find_gold(int i, int j, int k) {
 	for (int row = i - k; row <= i + k; row++) {
 		for (int col = j - k; col <= j + k; col++) {
 			if ((col - row >= j - i - k && col - row <= j - i + k)
-				&& (col + row >= i + j - k && col + row <= i + j + k)) {
+				&& (col + row >= i + j - k && col + row <= i + j + k)
+				&& check(row, col)) {
 				if (grid[row][col]) {
 					num++;
 				}
