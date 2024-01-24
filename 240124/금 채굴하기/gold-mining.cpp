@@ -41,7 +41,7 @@ int main() {
 
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) {
-			for (int k = 0; k < n; k++) {
+			for (int k = 0; k <= (2 * n) - 2; k++) {
 				int cost = pow(k, 2) + pow(k + 1, 2);
 				int gold_num = find_gold(i, j, k);
 
