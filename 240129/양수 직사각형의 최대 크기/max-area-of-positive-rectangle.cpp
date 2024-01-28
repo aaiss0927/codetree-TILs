@@ -50,6 +50,11 @@ int main() {
 		}
 	}
 
-	sort(sizes.begin(), sizes.end());
-	cout << sizes.back();
+	if (sizes.empty()) {
+		cout << -1;
+	}
+	else {
+		sort(sizes.begin(), sizes.end());
+		cout << sizes.back();
+	}
 }
