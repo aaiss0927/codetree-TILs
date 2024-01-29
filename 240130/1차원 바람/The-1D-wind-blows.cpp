@@ -52,32 +52,6 @@ bool check_down_sp(int row) {
 
 bool flag;
 
-void up_algorithm(int row_, bool flag_) {
-	if (flag_) {
-		L2R(row_);
-	}
-	else {
-		R2L(row_);
-	}
-
-	if (check_up_sp(row_)) {
-		up_algorithm(row_ - 1, !flag_);
-	}
-}
-
-void down_algorithm(int row_, bool flag_) {
-	if (flag_) {
-		L2R(row_);
-	}
-	else {
-		R2L(row_);
-	}
-
-	if (check_down_sp(row_)) {
-		down_algorithm(row_ + 1, !flag_);
-	}
-}
-
 int main() {
 	cin >> n >> m >> q;
 
@@ -90,16 +64,47 @@ int main() {
 	while (q--) {
 		cin >> r >> d;
 
+		r--;
+		int r_ = r;
+
 		if (d == 'L') {
 			flag = true;
+			L2R(r_);
 		}
 		else if (d == 'R') {
 			flag = false;
+			R2L(r_);
 		}
 
-		up_algorithm(r - 1, flag);
-		if (check_down_sp(r)) {
-			down_algorithm(r, !flag);
+		bool flag_ = flag;
+
+		while (check_up_sp(r_)) {
+			flag_ = !flag_;
+			
+			if (flag_) {
+				L2R(r_ - 1);
+			}
+			else {
+				R2L(r_ - 1);
+			}
+
+			r_--;
+		}
+
+		r_ = r + 1;
+		flag_ = flag;
+
+		while (check_down_sp(r_)) {
+			flag_ = !flag_;
+
+			if (flag_) {
+				L2R(r_);
+			}
+			else {
+				R2L(r_);
+			}
+
+			r_++;
 		}
 	}
 
