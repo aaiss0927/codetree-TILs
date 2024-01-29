@@ -98,7 +98,9 @@ int main() {
 		}
 
 		up_algorithm(r - 1, flag);
-		down_algorithm(r, !flag);
+		if (check_down_sp(r)) {
+			down_algorithm(r, !flag);
+		}
 	}
 
 	for (int i = 0; i < n; i++) {
