@@ -1,0 +1,63 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+using namespace std;
+
+string shift(string A, int n) {
+	string S;
+	S += A[n - 1];
+	for (int i = 0; i < n - 1; i++) {
+		S += A[i];
+	}
+	return S;
+}
+
+string encoding(string A, int n) {
+	string S;
+	int idx = 1;
+	char c = A[0];
+	int num = 1;
+
+	while (idx < n) {
+		if (A[idx] == c) {
+			num++;
+		}
+		
+		else {
+			S += c;
+			S += to_string(num);
+			c = A[idx];
+			num = 1;
+		}
+
+		idx++;
+	}
+
+	if (S.empty()) {
+		S += c;
+		S += to_string(num);
+	}
+
+	return S;
+}
+
+int main() {
+	string A; cin >> A;
+	int n = A.length();
+	vector<int> v;
+
+	for (int i = 1; i < n; i++) {
+		string B = A;
+		for (int j = 0; j < i; j++) {
+			B = shift(B, n);
+		}
+
+		string en = encoding(A, n);
+		v.push_back(en.length());
+	}
+
+	sort(v.begin(), v.end());
+
+	cout << v.front();
+}
