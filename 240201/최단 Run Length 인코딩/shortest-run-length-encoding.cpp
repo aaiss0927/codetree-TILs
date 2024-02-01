@@ -34,10 +34,8 @@ string encoding(string A, int n) {
 		idx++;
 	}
 
-	if (S.empty()) {
-		S += c;
-		S += to_string(num);
-	}
+	S += c;
+	S += to_string(num);
 
 	return S;
 }
@@ -47,13 +45,18 @@ int main() {
 	int n = A.length();
 	vector<int> v;
 
-	for (int i = 1; i < n; i++) {
+	if (n == 1) {
+		cout << 2;
+		return 0;
+	}
+
+	for (int i = 0; i < n; i++) {
 		string B = A;
 		for (int j = 0; j < i; j++) {
 			B = shift(B, n);
 		}
 
-		string en = encoding(A, n);
+		string en = encoding(B, n);
 		v.push_back(en.length());
 	}
 
