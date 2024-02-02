@@ -3,8 +3,8 @@
 using namespace std;
 
 int n;
-int grid[100][100];
-bool to_delete[100][100];
+int grid[200][200];
+bool to_delete[200][200];
 
 int main() {
 	cin >> n;
@@ -20,7 +20,6 @@ int main() {
 	r--; c--;
 
 	int num = grid[r][c] - 1;
-	int s_r, e_r, s_c, e_c;
 
 	int s_r = r - num;
 	if (r - num < 0) {
@@ -28,7 +27,7 @@ int main() {
 	}
 
 	int e_r = r + num;
-	if (r - num > n - 1) {
+	if (r + num > n - 1) {
 		e_r = n - 1;
 	}
 
@@ -38,7 +37,7 @@ int main() {
 	}
 
 	int e_c = c + num;
-	if (r - num > n - 1) {
+	if (c + num > n - 1) {
 		e_c = n - 1;
 	}
 	
