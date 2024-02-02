@@ -20,18 +20,39 @@ int main() {
 	r--; c--;
 
 	int num = grid[r][c] - 1;
+	int s_r, e_r, s_c, e_c;
+
+	int s_r = r - num;
+	if (r - num < 0) {
+		s_r = 0;
+	}
+
+	int e_r = r + num;
+	if (r - num > n - 1) {
+		e_r = n - 1;
+	}
+
+	int s_c = c - num;
+	if (c - num < 0) {
+		s_c = 0;
+	}
+
+	int e_c = c + num;
+	if (r - num > n - 1) {
+		e_c = n - 1;
+	}
 	
-	for (int i = r - num; i <= r + num; i++) {
+	for (int i = s_r; i <= e_r; i++) {
 		to_delete[i][c] = true;
 	}
 
-	for (int j = c - num; j <= c + num; j++) {
+	for (int j = s_c; j <= e_c; j++) {
 		to_delete[r][j] = true;
 	}
 
 	vector<vector<int>> temp;
 
-	for (int j = c - num; j <= c + num; j++) {
+	for (int j = s_c; j <= e_c; j++) {
 		vector<int> v;
 		int num_zero = 0;
 
@@ -52,7 +73,7 @@ int main() {
 	}
 
 	int idx = 0;
-	for (int j = c - num; j <= c + num; j++) {
+	for (int j = s_c; j <= e_c; j++) {
 		for (int i = n - 1; i >= 0; i--) {
 			grid[i][j] = temp[idx][n - 1 - i];
 		}
