@@ -57,12 +57,12 @@ int main() {
 		}
 	}
 
-	else if (dir == 'D') {
+	else if (dir == 'U') {
 		int temp[4][4];
 
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
-				temp[i][j] = grid[j][3 - i];
+				temp[i][j] = grid[j][i];
 			}
 		}
 
@@ -73,12 +73,12 @@ int main() {
 		}
 	}
 
-	else if (dir == 'U') {
+	else if (dir == 'D') {
 		int temp[4][4];
 
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
-				temp[i][j] = grid[j][i];
+				temp[i][j] = grid[j][3 - i];
 			}
 		}
 
@@ -129,12 +129,12 @@ int main() {
 		}
 	}
 
-	else if (dir == 'D') {
+	else if (dir == 'U') {
 		int temp[4][4];
 
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
-				temp[i][j] = arr[j][3 - i];
+				temp[i][j] = arr[j][i];
 			}
 		}
 
@@ -145,12 +145,12 @@ int main() {
 		}
 	}
 
-	else if (dir == 'U') {
+	else if (dir == 'D') {
 		int temp[4][4];
 
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
-				temp[i][j] = arr[j][i];
+				temp[i][j] = arr[j][3 - i];
 			}
 		}
 
