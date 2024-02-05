@@ -12,7 +12,6 @@ void explosion() {
 		for (int j = 0; j < n; j++) {
 			vector<pair<int, int>> to_exp;
 			
-
 			int s = 0;
 			int e = 0;
 
@@ -178,6 +177,11 @@ int main() {
 		for (int j = 0; j < n; j++) {
 			cin >> grid[i][j];
 		}
+	}
+
+	if (m == 1) {
+		cout << 0;
+		return 0;
 	}
 
 	while (k--) {
