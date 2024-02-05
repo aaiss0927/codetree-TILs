@@ -3,7 +3,7 @@
 using namespace std;
 
 int n, m;
-int grid[100][100];
+int grid[200][200];
 
 
 
@@ -53,7 +53,7 @@ void explosion(int r, int c) {
 			v.push_back(0);
 		}
 
-		for (int i = n - 1; i >= 0; i--) {
+		for (int i = 0; i < n; i++) {
 			grid[i][j] = v[n - 1 - i];
 		}
 	}
