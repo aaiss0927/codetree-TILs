@@ -83,7 +83,7 @@ int main() {
 		}
 
 		if (!check_row) {
-			break;
+			continue;
 		}
 
 		explosion(r, c);
