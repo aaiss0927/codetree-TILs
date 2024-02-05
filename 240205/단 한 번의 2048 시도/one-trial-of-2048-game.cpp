@@ -78,7 +78,7 @@ int main() {
 
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
-				temp[i][j] = grid[j][3 - i];
+				temp[i][j] = grid[3 - j][i];
 			}
 		}
 
