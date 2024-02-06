@@ -18,10 +18,19 @@ bool is_range(int x, int y) {
 }
 
 bool is_right_wall(int x, int y, int idx) {
-	int y_wall = y + dirs[idx].second;
-	idx--;
-	idx = (idx + 4) % 4;
-	int x_wall = x + dirs[idx].first;
+	int x_wall, y_wall;
+	if (idx % 2 == 0) {
+		y_wall = y + dirs[idx].second;
+		idx--;
+		idx = (idx + 4) % 4;
+		x_wall = x + dirs[idx].first;
+	}
+	else {
+		x_wall = x + dirs[idx].first;
+		idx--;
+		idx = (idx + 4) % 4;
+		y_wall = y + dirs[idx].second;
+	}
 	return (grid[x_wall][y_wall] == '#');
 }
 
@@ -94,12 +103,12 @@ int main() {
 
 		if (is_range(n_x, n_y) && !is_right_wall(c_x, c_y, idx)) {
 			t += 2;
-			c_x = n_x + cur_dir.first;
-			c_y = n_y + cur_dir.second;
+			c_x = c_x + cur_dir.first;
+			c_y = c_y + cur_dir.second;
 			dec_idx(idx);
 			cur_dir = dirs[idx];
-			c_x = n_x + cur_dir.first;
-			c_y = n_y + cur_dir.second;
+			c_x = c_x + cur_dir.first;
+			c_y = c_y + cur_dir.second;
 			flag_first_loop = false;
 			continue;
 		}
