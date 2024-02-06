@@ -30,7 +30,7 @@ int main() {
 			int n_x = c_x + dx[i];
 			int n_y = c_y + dy[i];
 
-			if (grid[n_y][n_x] > grid[c_y][c_x]) {
+			if (is_range(n_x, n_y) && (grid[n_y][n_x] > grid[c_y][c_x])) {
 				c_x = n_x;
 				c_y = n_y;
 				flag = true;
