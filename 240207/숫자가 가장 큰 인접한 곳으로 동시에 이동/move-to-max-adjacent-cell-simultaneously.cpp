@@ -40,8 +40,8 @@ int main() {
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
 				if (num_marble[i][j] != 0) {
-					int max = grid[i][j];
-					pair<int, int> pos_max = { i, j };
+					int max = 0;
+					pair<int, int> pos_max;
 
 					for (int k = 0; k < 4; k++) {
 						int n_x = i + dx[k];
