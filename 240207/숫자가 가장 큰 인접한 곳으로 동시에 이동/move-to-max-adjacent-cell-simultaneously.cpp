@@ -62,7 +62,7 @@ int main() {
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
 				if (num_next_marble[i][j] > 1) {
-					num_next_marble[i][j] == 0;
+					num_next_marble[i][j] = 0;
 				}
 			}
 		}
