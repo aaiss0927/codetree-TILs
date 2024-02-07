@@ -7,6 +7,10 @@ int num_marble[20][20];
 int dx[4] = { -1, 1, 0, 0 };
 int dy[4] = { 0, 0, -1, 1 };
 
+bool is_range(int x, int y) {
+	return (x >= 0 && x < n&& y >= 0 && y < n);
+}
+
 int main() {
 	cin >> n >> m >> t;
 
@@ -25,6 +29,7 @@ int main() {
 
 	while (t--) {
 		int num_next_marble[20][20];
+
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
 				num_next_marble[i][j] = num_marble[i][j];
@@ -42,7 +47,7 @@ int main() {
 						int n_x = i + dx[k];
 						int n_y = j + dy[k];
 
-						if (grid[n_x][n_y] > max) {
+						if (is_range(n_x, n_y) && grid[n_x][n_y] > max) {
 							max = grid[n_x][n_y];
 							pos_max = { n_x, n_y };
 						}
