@@ -60,23 +60,17 @@ int main() {
 	vector<int> times;
 
 	for (int i = 0; i < n; i++) {
-		c_x = i; c_y = 0;
+		c_x = i; c_y = -1;
 		cur_dir = { 0, 1 };
 
-		int t = 1;
+		int t = 0;
 
-		while (is_range(c_x, c_y)) {
-			t++;
-
+		do {
 			int n_x = c_x + cur_dir.first;
 			int n_y = c_y + cur_dir.second;
 
 			c_x = n_x;
 			c_y = n_y;
-
-			if (!is_range(c_x, c_y)) {
-				break;
-			}
 
 			if (grid[c_x][c_y] == 1) {
 				cur_dir = rotate_1(cur_dir);
@@ -85,29 +79,25 @@ int main() {
 			else if (grid[c_x][c_y] == 2) {
 				cur_dir = rotate_2(cur_dir);
 			}
-		}
+
+			t++;
+		} while (is_range(c_x, c_y));
 
 		times.push_back(t);
 	}
 
 	for (int j = 0; j < n; j++) {
-		c_x = n - 1; c_y = j;
+		c_x = n; c_y = j;
 		cur_dir = { -1, 0 };
 
-		int t = 1;
+		int t = 0;
 
-		while (is_range(c_x, c_y)) {
-			t++;
-
+		do {
 			int n_x = c_x + cur_dir.first;
 			int n_y = c_y + cur_dir.second;
 
 			c_x = n_x;
 			c_y = n_y;
-
-			if (!is_range(c_x, c_y)) {
-				break;
-			}
 
 			if (grid[c_x][c_y] == 1) {
 				cur_dir = rotate_1(cur_dir);
@@ -116,29 +106,25 @@ int main() {
 			else if (grid[c_x][c_y] == 2) {
 				cur_dir = rotate_2(cur_dir);
 			}
-		}
+
+			t++;
+		} while (is_range(c_x, c_y));
 
 		times.push_back(t);
 	}
 
 	for (int i = 0; i < n; i++) {
-		c_x = i; c_y = n - 1;
+		c_x = i; c_y = n;
 		cur_dir = { 0, -1 };
 
-		int t = 1;
+		int t = 0;
 
-		while (is_range(c_x, c_y)) {
-			t++;
-			
+		do {
 			int n_x = c_x + cur_dir.first;
 			int n_y = c_y + cur_dir.second;
 
 			c_x = n_x;
 			c_y = n_y;
-
-			if (!is_range(c_x, c_y)) {
-				break;
-			}
 
 			if (grid[c_x][c_y] == 1) {
 				cur_dir = rotate_1(cur_dir);
@@ -147,29 +133,25 @@ int main() {
 			else if (grid[c_x][c_y] == 2) {
 				cur_dir = rotate_2(cur_dir);
 			}
-		}
+
+			t++;
+		} while (is_range(c_x, c_y));
 
 		times.push_back(t);
 	}
 
 	for (int j = 0; j < n; j++) {
-		c_x = 0; c_y = j;
+		c_x = -1; c_y = j;
 		cur_dir = { 1, 0 };
 
-		int t = 1;
+		int t = 0;
 
-		while (is_range(c_x, c_y)) {
-			t++;
-
+		do {
 			int n_x = c_x + cur_dir.first;
 			int n_y = c_y + cur_dir.second;
 
 			c_x = n_x;
 			c_y = n_y;
-
-			if (!is_range(c_x, c_y)) {
-				break;
-			}
 
 			if (grid[c_x][c_y] == 1) {
 				cur_dir = rotate_1(cur_dir);
@@ -178,7 +160,9 @@ int main() {
 			else if (grid[c_x][c_y] == 2) {
 				cur_dir = rotate_2(cur_dir);
 			}
-		}
+
+			t++;
+		} while (is_range(c_x, c_y));
 
 		times.push_back(t);
 	}
