@@ -66,11 +66,17 @@ int main() {
 		int t = 1;
 
 		while (is_range(c_x, c_y)) {
+			t++;
+
 			int n_x = c_x + cur_dir.first;
 			int n_y = c_y + cur_dir.second;
 
 			c_x = n_x;
 			c_y = n_y;
+
+			if (!is_range(c_x, c_y)) {
+				break;
+			}
 
 			if (grid[c_x][c_y] == 1) {
 				cur_dir = rotate_1(cur_dir);
@@ -79,8 +85,6 @@ int main() {
 			else if (grid[c_x][c_y] == 2) {
 				cur_dir = rotate_2(cur_dir);
 			}
-
-			t++;
 		}
 
 		times.push_back(t);
@@ -93,11 +97,17 @@ int main() {
 		int t = 1;
 
 		while (is_range(c_x, c_y)) {
+			t++;
+
 			int n_x = c_x + cur_dir.first;
 			int n_y = c_y + cur_dir.second;
 
 			c_x = n_x;
 			c_y = n_y;
+
+			if (!is_range(c_x, c_y)) {
+				break;
+			}
 
 			if (grid[c_x][c_y] == 1) {
 				cur_dir = rotate_1(cur_dir);
@@ -106,8 +116,6 @@ int main() {
 			else if (grid[c_x][c_y] == 2) {
 				cur_dir = rotate_2(cur_dir);
 			}
-
-			t++;
 		}
 
 		times.push_back(t);
@@ -120,11 +128,17 @@ int main() {
 		int t = 1;
 
 		while (is_range(c_x, c_y)) {
+			t++;
+			
 			int n_x = c_x + cur_dir.first;
 			int n_y = c_y + cur_dir.second;
 
 			c_x = n_x;
 			c_y = n_y;
+
+			if (!is_range(c_x, c_y)) {
+				break;
+			}
 
 			if (grid[c_x][c_y] == 1) {
 				cur_dir = rotate_1(cur_dir);
@@ -133,8 +147,6 @@ int main() {
 			else if (grid[c_x][c_y] == 2) {
 				cur_dir = rotate_2(cur_dir);
 			}
-
-			t++;
 		}
 
 		times.push_back(t);
@@ -147,11 +159,17 @@ int main() {
 		int t = 1;
 
 		while (is_range(c_x, c_y)) {
+			t++;
+
 			int n_x = c_x + cur_dir.first;
 			int n_y = c_y + cur_dir.second;
 
 			c_x = n_x;
 			c_y = n_y;
+
+			if (!is_range(c_x, c_y)) {
+				break;
+			}
 
 			if (grid[c_x][c_y] == 1) {
 				cur_dir = rotate_1(cur_dir);
@@ -160,8 +178,6 @@ int main() {
 			else if (grid[c_x][c_y] == 2) {
 				cur_dir = rotate_2(cur_dir);
 			}
-
-			t++;
 		}
 
 		times.push_back(t);
