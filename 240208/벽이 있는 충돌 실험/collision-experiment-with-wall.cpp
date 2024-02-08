@@ -93,9 +93,13 @@ int main() {
 		while (t--) {
 			for (auto it = marbles.begin(); it != marbles.end(); it++) {
 				if ((*it).is_present_ == true) {
+					if ((*it).dir_ != set_dir((*it), n)) {
+						(*it).dir_ = set_dir((*it), n);
+						continue;
+					}
+					
 					num_next_marble[(*it).x_][(*it).y_]--;
 
-					(*it).dir_ = set_dir((*it), n);
 					(*it).x_ = (*it).x_ + (*it).dir_.first;
 					(*it).y_ = (*it).y_ + (*it).dir_.second;
 
