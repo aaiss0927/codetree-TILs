@@ -6,6 +6,7 @@ int n;
 int ans = 0;
 vector<int> arr;
 vector<vector<int>> candidate;
+vector<vector<int>> check;
 
 void make_candidate() {
 	if (arr.size() == n) {
@@ -54,15 +55,15 @@ void num_beautiful_num() {
 				}
 				cur_num = (*it)[i];
 				cont[cur_num - 1]++;
+				process(cont);
 			}
 		}
-
-		process(cont);
 
 		if (!is_beautiful(cont)) {
 			continue;
 		}
 
+		check.push_back(*it);
 		ans++;
 	}
 }
