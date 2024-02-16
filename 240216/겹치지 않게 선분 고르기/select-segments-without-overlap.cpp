@@ -34,7 +34,7 @@ bool validate(vector<int> combi) {
 	
 	for (int i = 0; i < n; i++) {
 		if (combi[i]) {
-			for (int j = lines[i].first; j < lines[i].second; j++) {
+			for (int j = lines[i].first; j <= lines[i].second; j++) {
 				if (is_full[j]) {
 					return false;
 				}
