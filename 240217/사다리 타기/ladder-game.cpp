@@ -17,7 +17,7 @@ vector<int> ladder_result(vector<pair<int, int>> input) {
 	}
 
 	for (int i = 1; i <= n; i++) {
-		for (int j = 1; j <= m; j++) {
+		for (int j = 1; j <= 15; j++) {
 			ladder[j][i] = false;
 		}
 	}
@@ -27,7 +27,7 @@ vector<int> ladder_result(vector<pair<int, int>> input) {
 	}
 
 	for (int i = 1; i <= n; i++) {
-		for (int j = 1; j <= m; j++) {
+		for (int j = 1; j <= 15; j++) {
 			if (ladder[j][initial[i]]) {
 				initial[i] = initial[i] + 1;
 			}
@@ -65,7 +65,7 @@ bool is_wrong(vector<pair<int, int>> input) {
 	}
 
 	for (int i = 1; i <= n; i++) {
-		for (int j = 1; j <= m; j++) {
+		for (int j = 1; j <= 15; j++) {
 			ladder[j][i] = false;
 		}
 	}
@@ -75,7 +75,7 @@ bool is_wrong(vector<pair<int, int>> input) {
 	}
 
 	for (int i = 1; i <= n; i++) {
-		for (int j = 1; j <= m; j++) {
+		for (int j = 1; j <= 15; j++) {
 			if (initial[i] > 1 && initial[i] < n) {
 				if (ladder[j][initial[i]] && ladder[j][initial[i] - 1]) {
 					return true;
