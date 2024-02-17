@@ -42,7 +42,7 @@ vector<int> ladder_result(vector<pair<int, int>> input) {
 	}
 
 	for (int i = 1; i <= n; i++) {
-		for (int j = 1; j <= m; j++) {
+		for (int j = 1; j <= 15; j++) {
 			if (ladder_lines[j][initial[i]]) {
 				initial[i]++;
 			}
@@ -80,7 +80,7 @@ bool is_wrong(vector<pair<int, int>> input) {
 	}
 
 	for (int i = 1; i <= n; i++) {
-		for (int j = 1; j <= m; j++) {
+		for (int j = 1; j <= 15; j++) {
 			if (ladder_lines[j][initial[i]] && ladder_lines[j][initial[i] - 1]) {
 				return true;
 			}
