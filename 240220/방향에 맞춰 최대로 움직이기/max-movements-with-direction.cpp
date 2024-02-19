@@ -25,8 +25,9 @@ bool exit_condition(int x, int y) {
 }
 
 int ans = 0;
+int cnt = 0;
 
-void process(int x, int y, int cnt) {
+void process(int x, int y) {
     if (exit_condition(x, y)) {
         ans = max(cnt, ans);
         return;
@@ -37,7 +38,9 @@ void process(int x, int y, int cnt) {
         int ny = y + grid_dir[x][y].second * i;
 
         if (is_range(nx, ny) && grid[nx][ny] > grid[x][y]) {
-            process(nx, ny, cnt + 1);
+            cnt++;
+            process(nx, ny);
+            cnt--;
         }
     }
 }
@@ -60,7 +63,7 @@ int main() {
 
     int r, c; cin >> r >> c; r--; c--;
 
-    process(r, c, 0);
+    process(r, c);
 
     cout << ans;
 }
