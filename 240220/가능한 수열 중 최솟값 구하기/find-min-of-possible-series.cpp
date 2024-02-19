@@ -6,7 +6,7 @@ int n;
 
 bool check_series(vector<int> temp) {
     int sz = temp.size();
-    for (int i = 1; i < sz; i++) {
+    for (int i = 1; i < (sz / 2); i++) {
         for (int j = i; j < sz; j++) {
             int cnt = 0;
 
