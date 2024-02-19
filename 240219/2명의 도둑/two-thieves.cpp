@@ -20,7 +20,7 @@ void choose(int cnt, int next) {
             }
 
             else {
-                if (abs(one_case[0] - one_case[0]) >= m) {
+                if (abs(one_case[0] - one_case[1]) >= m) {
                     all_case.push_back(one_case);
                 }
             }
