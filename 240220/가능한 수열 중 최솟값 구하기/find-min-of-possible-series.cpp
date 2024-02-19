@@ -5,12 +5,13 @@ using namespace std;
 int n;
 
 bool check_series(vector<int> temp) {
-    for (int i = 1; i < n; i++) {
-        for (int j = i; j < n; j++) {
+    int sz = temp.size();
+    for (int i = 1; i < sz; i++) {
+        for (int j = i; j < sz; j++) {
             int cnt = 0;
 
             for (int k = 0; k < i; k++) {
-                if (j + k < n) {
+                if (j + k < sz) {
                     if (temp[j + k] == temp[j + k - i]) {
                         cnt++;
                     }
@@ -31,7 +32,7 @@ bool is_finish = false;
 
 void make_series(int cnt) {
     if (cnt == n) {
-        if (!is_finish && check_series(v)) {
+        if (!is_finish) {
             is_finish = true;
 
             for (int i = 0; i < v.size(); i++) {
@@ -43,7 +44,9 @@ void make_series(int cnt) {
 
     for (int i = 4; i <= 6; i++) {
         v.push_back(i);
-        make_series(cnt + 1);
+        if (check_series(v)) {
+            make_series(cnt + 1);
+        }
         v.pop_back();
     }
 }
