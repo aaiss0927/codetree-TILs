@@ -12,7 +12,7 @@
 
 |교재|이름|난이도|상태|최근 제출 코드|
 |---|---|:---:|:---:|---|
-|[Intermediate Low / Backtracking / K개 중 하나를 N번 선택하기(Simple)](https://www.codetree.ai/missions?missionId=2)|[[연습]사다리 타기](https://www.codetree.ai/missions/2/problems/ladder-game)|![어려움][hard]|![Failed][failed]|[링크](https://github.com/aaiss0927/codetree-TILs/blob/main/240217/%EC%82%AC%EB%8B%A4%EB%A6%AC%20%ED%83%80%EA%B8%B0/ladder-game.cpp)|
+|[Intermediate Low / Backtracking / K개 중 하나를 N번 선택하기(Simple)](https://www.codetree.ai/missions?missionId=2)|[[연습]사다리 타기](https://www.codetree.ai/missions/2/problems/ladder-game)|![어려움][hard]|![Passed][passed]|[링크](https://github.com/aaiss0927/codetree-TILs/blob/main/240217/%EC%82%AC%EB%8B%A4%EB%A6%AC%20%ED%83%80%EA%B8%B0/ladder-game.cpp)|
 
 
 * 획득 경험치: 해설을 보지 않고 푼 문제에 한해 최초 1회 경험치를 획득하실 수 있습니다.
