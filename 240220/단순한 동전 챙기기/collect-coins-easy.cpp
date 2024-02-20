@@ -36,7 +36,7 @@ vector<int> idx;
 // ex) coin_nums = {7, 8, 9} 
 void process(int cur, int next, int selected_num) {
     if (cur == selected_num) {
-        int distance = get_distance(start_pnt, coins[idx[0]]);
+        int distance = get_distance(start_pnt, coins[coin_nums[idx[0]]]);
         pair<int, int> temp;
 
         for (int i = 0; i < selected_num - 1; i++) {
