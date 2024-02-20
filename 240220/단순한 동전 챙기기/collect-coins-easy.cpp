@@ -33,16 +33,16 @@ int get_distance(pair<int, int> pnt1, pair<int, int> pnt2) {
 }
 
 vector<int> idx;
-// ex) coin_nums = {1, 3, 4, 5, 6, 8} 
+// ex) coin_nums = {7, 8, 9} 
 void process(int cur, int next, int selected_num) {
     if (cur == selected_num) {
         int distance = get_distance(start_pnt, coins[idx[0]]);
         pair<int, int> temp;
 
         for (int i = 0; i < selected_num - 1; i++) {
-            distance += get_distance(coins[idx[i]], coins[idx[i + 1]]);
+            distance += get_distance(coins[coin_nums[idx[i]]], coins[coin_nums[idx[i + 1]]]);
             if (i == selected_num - 2) {
-                temp = coins[idx[i + 1]];
+                temp = coins[coin_nums[idx[i + 1]]];
             }
         }
 
@@ -57,7 +57,7 @@ void process(int cur, int next, int selected_num) {
         process(cur + 1, i + 1, selected_num);
         idx.pop_back();
     }
-} 
+}
 
 int main() {
     cin >> n;
@@ -79,7 +79,7 @@ int main() {
             }
 
             if (is_num(grid[i][j])) {
-                coins.insert({grid[i][j] - '0', {i, j}});
+                coins.insert({ grid[i][j] - '0', {i, j} });
             }
         }
     }
@@ -90,12 +90,13 @@ int main() {
         }
     }
 
-    for (int i = 3; i <= coin_nums.size(); i++) {
-        process(0, 0, i);
+    if (coin_nums.size() < 3) {
+        cout << -1;
+        return 0;
     }
 
-    if (coin_nums.size() < 3) {
-        ans = -1;
+    for (int i = 3; i <= coin_nums.size(); i++) {
+        process(0, 0, i);
     }
 
     cout << ans;
