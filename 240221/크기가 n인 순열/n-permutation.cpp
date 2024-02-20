@@ -4,18 +4,32 @@ using namespace std;
 
 int n;
 vector<int> v;
+vector<bool> visited(n + 1, false);
 
-int main() {
-    cin >> n;
-
-    for (int i = 1; i <= n; i++) {
-        v.push_back(i);
-    }
-
-    do {
-        for (int i = 0; i < v.size(); i++) {
+void perm(int cur) {
+    if (cur == n) {
+        for (int i = 0; i < n; i++) {
             cout << v[i] << ' ';
         }
         cout << '\n';
-    } while(next_permutation(v.begin(), v.end()));
+        return;
+    }
+
+    for (int i = 1; i <= n; i++) {
+        if (visited[i]) {
+            continue;
+        }
+
+        visited[i] = true;
+        v.push_back(i);
+        perm(cur + 1);
+        v.pop_back();
+        visited[i] = false;
+    }
+}
+
+int main() {
+    cin >> n;
+    
+    perm(0);
 }
