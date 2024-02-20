@@ -27,17 +27,13 @@ bool check_series(vector<int> temp) {
 }
 
 vector<int> v;
-bool is_finish = false;
 
 void make_series(int cnt) {
     if (cnt == n) {
-        if (!is_finish) {
-            is_finish = true;
-
-            for (int i = 0; i < v.size(); i++) {
-                cout << v[i];
-            }
+        for (int i = 0; i < v.size(); i++) {
+            cout << v[i];
         }
+        exit(0);
         return;
     }
 
