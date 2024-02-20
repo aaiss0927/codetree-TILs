@@ -44,7 +44,7 @@ void make_series(int cnt) {
 
     for (int i = 4; i <= 6; i++) {
         v.push_back(i);
-        if (check_series(v)) {
+        if ((v[v.size() - 1] != v[v.size() -2]) && check_series(v)) {
             make_series(cnt + 1);
         }
         v.pop_back();
