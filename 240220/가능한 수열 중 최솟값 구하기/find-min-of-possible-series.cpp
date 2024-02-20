@@ -6,20 +6,19 @@ int n;
 
 bool check_series(vector<int> temp) {
     int sz = temp.size();
+
     for (int i = 1; i <= (sz / 2); i++) {
         for (int j = i; j < sz; j++) {
-            int cnt = 0;
+            if (j + i <= sz) {
+                vector<int> one(i);
+                vector<int> two(i);
 
-            for (int k = 0; k < i; k++) {
-                if (j + k < sz) {
-                    if (temp[j + k] == temp[j + k - i]) {
-                        cnt++;
-                    }
+                copy(temp.begin() + j - i, temp.begin() + j, one.begin());
+                copy(temp.begin() + j, temp.begin() + j + i, two.begin());
+
+                if (one == two) {
+                    return false;
                 }
-            }
-
-            if (cnt == i) {
-                return false;
             }
         }
     }
@@ -44,7 +43,7 @@ void make_series(int cnt) {
 
     for (int i = 4; i <= 6; i++) {
         v.push_back(i);
-        if ((v[v.size() - 1] != v[v.size() -2]) && check_series(v)) {
+        if (check_series(v)) {
             make_series(cnt + 1);
         }
         v.pop_back();
