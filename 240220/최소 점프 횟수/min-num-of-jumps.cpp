@@ -14,11 +14,6 @@ void process(int cur, int cnt) {
         return;
     }
 
-    if (nums[cur] == 0) {
-        cout << -1;
-        exit(0);
-    }
-
     for (int i = 1; i <= nums[cur]; i++) {
         if (cur + i <= n - 1) {
             process(cur + i, cnt + 1);
@@ -35,6 +30,10 @@ int main() {
     }
 
     process(0, 0);
+
+    if (ans == INT_MAX) {
+        ans = -1;
+    }
 
     cout << ans;
 }
