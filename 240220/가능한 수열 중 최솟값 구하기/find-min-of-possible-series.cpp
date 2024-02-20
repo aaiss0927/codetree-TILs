@@ -42,6 +42,10 @@ void make_series(int cnt) {
     }
 
     for (int i = 4; i <= 6; i++) {
+        if (!v.empty() && v.back() == i) {
+            continue;
+        }
+
         v.push_back(i);
         if (check_series(v)) {
             make_series(cnt + 1);
