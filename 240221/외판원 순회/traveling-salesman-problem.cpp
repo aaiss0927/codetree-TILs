@@ -13,15 +13,31 @@ vector<bool> visited;
 
 void perm(int cur) {
     if (cur == n - 1) {
+        if (grid[0][v[0]] == 0) {
+            return;
+        }
+
+        for (int i = 0; i <= n - 3; i++) {
+            if (grid[v[i]][v[i + 1]] == 0) {
+                return;
+            }
+        }
+
+        if (grid[v[n - 2]][0] == 0) {
+            return;
+        }
+
         int cost = grid[0][v[0]];
 
-        for (int i = 0; i <= n - 2; i++) {
+        for (int i = 0; i <= n - 3; i++) {
             cost += grid[v[i]][v[i + 1]];
         }
 
-        cost += grid[v[n - 1]][0];
+        cost += grid[v[n - 2]][0];
 
         ans = min(ans, cost);
+
+        return;
     }
 
     for (int i = 1; i <= n - 1; i++) {
@@ -44,7 +60,7 @@ int main() {
 
     cin >> n;
 
-    for (int i = 0; i <n; i++) {
+    for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             cin >> grid[i][j];
         }
