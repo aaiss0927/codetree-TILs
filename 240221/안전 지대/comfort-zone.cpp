@@ -13,7 +13,7 @@ bool is_range(int x, int y) {
     return (x >= 0 && x < n && y >= 0 && y < m);
 }
 
-int ans_k = 0;
+int ans_k = 1;
 int ans_cnt = 0;
 
 void DFS(int x, int y, int k) {
