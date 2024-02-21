@@ -14,7 +14,7 @@ bool is_range(int x, int y) {
 }
 
 int ans_k = 0;
-int ans_cnt = INT_MIN;
+int ans_cnt = 0;
 
 void DFS(int x, int y, int k) {
     for (int i = 0; i < 4; i++) {
