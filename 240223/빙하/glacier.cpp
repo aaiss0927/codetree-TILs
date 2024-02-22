@@ -82,8 +82,33 @@ int main() {
         last_size = 0;
         setup();
 
-        visited[0][0] = true;
-        q.push({ 0, 0 });
+        for (int i = 0; i < n - 1; i++) {
+            if (!visited[i][0]) {
+                visited[i][0] = true;
+                q.push({i, 0});
+            }
+        }
+
+        for (int i = 0; i < n - 1; i++) {
+            if (!visited[i][m - 1]) {
+                visited[i][m - 1] = true;
+                q.push({i, m - 1});
+            }
+        }
+
+        for (int j = 0; j < m - 1; j++) {
+            if (!visited[0][j]) {
+                visited[0][j] = true;
+                q.push({0, j});
+            }
+        }
+
+        for (int j = 0; j < m - 1; j++) {
+            if (!visited[n - 1][j]) {
+                visited[n - 1][j] = true;
+                q.push({n - 1, j});
+            }
+        }
 
         BFS();
 
