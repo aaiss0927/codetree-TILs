@@ -7,6 +7,28 @@ using namespace std;
 int n;
 vector<tuple<int, int, int>> pt;
 
+bool cmp(tuple<int, int, int> t1, tuple<int, int, int> t2) {
+    if (get<1>(t1) < get<1>(t2)) {
+        return true;
+    }
+
+    else if (get<1>(t1) == get<1>(t2)) {
+        if (get<0>(t1) <= get<0>(t2)) {
+            return true;
+        }
+
+        else {
+            return false;
+        }
+    }
+
+    else {
+        return false;
+    }
+}
+
+// 끝점으로 정렬
+
 int main() {
     cin >> n;
 
@@ -15,6 +37,8 @@ int main() {
         cin >> s >> e >> p; s--; e--; p;
         pt.push_back({ s, e, p });
     }
+
+    sort(pt.begin(), pt.end(), cmp);
 
     int last_pnt = get<1>(pt.back());
 
