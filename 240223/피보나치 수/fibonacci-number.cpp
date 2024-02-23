@@ -5,16 +5,8 @@ int n;
 int dp[46];
 
 int f(int n) {
-    if (dp[n] != 0) {
-        return dp[n];
-    }
-
-    if (n <= 2) {
-        dp[n] = 1;
-    }
-
-    else {
-        dp[n] = f(n - 1) + f(n - 2);
+    for (int i = 3; i <= n; i++) {
+        dp[i] = dp[i - 1] + dp[i - 2];
     }
 
     return dp[n];
@@ -22,6 +14,8 @@ int f(int n) {
 
 int main() {
     cin >> n;
+
+    dp[1] = dp[2] = 1;
 
     cout << f(n);
 }
