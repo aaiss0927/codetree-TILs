@@ -34,7 +34,7 @@ int main() {
 
     for (int i = 0; i < n; i++) {
         int s, e, p;
-        cin >> s >> e >> p; s--; e--; p;
+        cin >> s >> e >> p; s--; e--;
         pt.push_back({ s, e, p });
     }
 
