@@ -6,24 +6,6 @@ int n;
 vector<pair<int, int>> lines;
 int dp[1001];
 
-bool cmp(pair<int, int> p1, pair<int, int> p2) {
-    if (p1.second < p2.second) {
-        return true;
-    }
-
-    else if (p1.second == p2.second) {
-        if (p1.first >= p2.first) {
-            return true;
-        }
-
-        else {
-            return false;
-        }
-    }
-
-    return false;
-}
-
 int main() {
     cin >> n;
     
@@ -32,7 +14,7 @@ int main() {
         lines.push_back({s, e});
     }
 
-    sort(lines.begin(), lines.end(), cmp);
+    sort(lines.begin(), lines.end());
 
     for (int i = 0; i < n; i++) {
         dp[i] = 0;
