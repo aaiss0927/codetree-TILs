@@ -10,15 +10,14 @@ int dp[1001];
 int ans = INT_MIN;
 
 int main() {
+    cin.tie(0);
+    ios::sync_with_stdio(0);
+
     cin >> n;
 
     for (int i = 0; i < n; i++) {
         int num; cin >> num;
         nums.push_back(num);
-    }
-
-    for (int i = 0; i < n; i++) {
-        dp[i] = 1;
     }
 
     for (int turning_pnt = 0; turning_pnt < n; turning_pnt++) {
