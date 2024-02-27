@@ -34,6 +34,10 @@ int main() {
 
     sort(lines.begin(), lines.end(), cmp);
 
+    for (int i = 0; i < n; i++) {
+        dp[i] = 0;
+    }
+
     int start_pnt, end_pnt;
 
     start_pnt = lines[0].first;
@@ -41,14 +45,12 @@ int main() {
     dp[0] = 1;
 
     for (int i = 1; i < n; i++) {
-        if (lines[i].first > start_pnt) {
-            dp[i] = dp[i - 1] + 1;
-        }
-
-        else {
-            dp[i] = dp[i - 1];
+        for (int j = 0; j < i; j++) {
+            if (lines[j].second < lines[i].first && dp[j] != -1) {
+                dp[i] = max(dp[i], dp[j] + 1);
+            } 
         }
     }
 
-    cout << dp[n - 1];
+    cout << *max_element(dp, dp + n);
 }
