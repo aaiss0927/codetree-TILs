@@ -39,19 +39,26 @@ int main() {
     sort(pts.begin(), pts.end(), cmp);
 
     for (int i = 1; i <= n; i++) {
-        dp[i].first = -1;
-        dp[i].second = get<1>(pts[i]);
+        dp[i].first = 0;
+        dp[i].second = 0;
     }
 
-    dp[1].first = get<2>(pts[1]);
-    dp[1].second = get<1>(pts[1]);
+    // .first : 돈 / .second : 끝점
+    // get<0> : 시작점 / get<1> : 끝점 / get<2> : 돈
 
-    for (int i = 2; i <= n; i++) {
+    for (int i = 1; i <= n; i++) {
         for (int j = 0; j < i; j++) {
-            if (dp[j].first != -1 && dp[j].second < get<0>(pts[i])) {
+            if (dp[j].second < get<0>(pts[i])) {
                 if (dp[i].first < dp[j].first + get<2>(pts[i])) {
                     dp[i].first = dp[j].first + get<2>(pts[i]);
-                    dp[i].second = get<2>(pts[i]);
+                    dp[i].second = get<1>(pts[i]);
+                }
+            }
+
+            else {
+                if (dp[i].first < dp[j].first) {
+                    dp[i].first = dp[j].first;
+                    dp[i].second = dp[j].second;
                 }
             }
         }
