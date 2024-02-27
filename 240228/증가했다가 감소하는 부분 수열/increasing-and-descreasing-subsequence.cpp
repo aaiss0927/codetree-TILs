@@ -7,7 +7,7 @@ using namespace std;
 int n;
 vector<int> nums;
 int dp[1001];
-int ans = INT_MIN
+int ans = INT_MIN;
 
 int main() {
     cin >> n;
