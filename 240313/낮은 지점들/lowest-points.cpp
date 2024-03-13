@@ -3,13 +3,13 @@
 using namespace std;
 
 int n;
-unordered_map<int, int> mp;
+unordered_map<long, long> mp;
 
 int main() {
 	cin >> n;
 
 	while (n--) {
-		int x, y; cin >> x >> y;
+		long x, y; cin >> x >> y;
 
 		if (mp.find(x) != mp.end()) {
 			if (y < mp[x]) {
@@ -22,7 +22,7 @@ int main() {
 		}
 	}
 
-	int ans = 0;
+	long ans = 0;
 
 	for (auto it = mp.begin(); it != mp.end(); it++) {
 		ans += it->second;
