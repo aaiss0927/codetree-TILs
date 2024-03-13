@@ -3,7 +3,7 @@
 using namespace std;
 
 int n;
-unordered_map<int, int> map;
+unordered_map<int, int> mp;
 
 int main() {
 	cin >> n;
@@ -11,20 +11,20 @@ int main() {
 	while (n--) {
 		int x, y; cin >> x >> y;
 
-		if (map.find(x) != map.end()) {
-			if (y < map[x]) {
-				map[x] = y;
+		if (mp.find(x) != mp.end()) {
+			if (y < mp[x]) {
+				mp[x] = y;
 			}
 		}
 
 		else {
-			map[x] = y;
+			mp[x] = y;
 		}
 	}
 
 	int ans = 0;
 
-	for (auto it = map.begin(); it != map.end(); it++) {
+	for (auto it = mp.begin(); it != mp.end(); it++) {
 		ans += it->second;
 	}
 
