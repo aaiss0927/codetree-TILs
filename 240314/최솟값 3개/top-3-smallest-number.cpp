@@ -5,13 +5,13 @@
 using namespace std;
 
 int n;
-priority_queue<int, vector<int>, greater<int>> pq;
+priority_queue<long long, vector<long long>, greater<long long>> pq;
 
 int main() {
 	cin >> n;
 
 	while (n--) {
-		int num; cin >> num;
+		long long num; cin >> num;
 		pq.push(num);
 
 		if (pq.size() < 3) {
@@ -19,11 +19,12 @@ int main() {
 			continue;
 		}
 
-		int a = pq.top(); pq.pop();
-		int b = pq.top(); pq.pop();
-		int c = pq.top();
+		long long a = pq.top(); pq.pop();
+		long long b = pq.top(); pq.pop();
+		long long c = pq.top();
 		pq.push(a); pq.push(b);
 
-		cout << a * b * c << '\n';
+		long long ans = a * b * c;
+		cout << ans << '\n';
 	}
 }
