@@ -107,6 +107,10 @@ int main() {
 		}
 
 		else if (cmd == 'D') {
+			if (p == L.end()) {
+				continue;
+			}
+
 			L.erase(p);
 		}
 
