@@ -111,7 +111,9 @@ int main() {
 				continue;
 			}
 
+			Node* p_ = p->next;
 			L.erase(p);
+			p = p_;
 		}
 
 		else if (cmd == 'P') {
