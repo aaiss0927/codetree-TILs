@@ -10,6 +10,7 @@ int main() {
 
 	for (int i = 0; i < n; i++) {
 		cin >> v[i];
+		map[v[i]]++;
 	}
 
 	int cnt = 0;
@@ -19,9 +20,8 @@ int main() {
 
 		if (map.find(target) != map.end()) {
 			cnt += map[target];
+			map[v[i]]--;
 		}
-
-		map[v[i]]++;
 	}
 
 	cout << cnt;
