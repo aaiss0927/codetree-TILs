@@ -4,36 +4,25 @@
 #include <algorithm>
 using namespace std;
 
-bool cmp(const pair<long long, long long>& a, const pair<long long, long long>& b) {
-	if (a.second < b.second) {
-		return true;
-	}
-
-	else if (a.second == b.second) {
-		if (a.first < b.first) {
-			return true;
-		}
-
-		return false;
-	}
-
-	return false;
-}
-
 int main() {
 	int n, k; cin >> n >> k;
-	vector<long long> v(n);
-	unordered_map<long long, long long> map;
+	vector<int> v(n);
+	unordered_map<int, int> map;
 
 	for (int i = 0; i < n; i++) {
 		cin >> v[i];
 		map[v[i]]++;
 	}
 
-	vector<pair<long long, long long>> temp(map.begin(), map.end());
-	sort(temp.begin(), temp.end(), cmp);
+	vector<pair<int, int>> temp;
+
+	for (unordered_map<int, int>::iterator it = map.begin(); it != map.end(); it++) {
+		temp.push_back({ it->second, it->first });
+	}
+
+	sort(temp.begin(), temp.end());
 
 	for (int i = temp.size() - 1; i >= temp.size() - k; i--) {
-		cout << temp[i].first << " ";
+		cout << temp[i].second << " ";
 	}
 }
