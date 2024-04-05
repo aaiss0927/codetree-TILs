@@ -14,14 +14,10 @@ bool cmp(pair<long long, long long> a, pair<long long, long long> b) {
 			return true;
 		}
 
-		else {
-			return false;
-		}
-	}
-
-	else {
 		return false;
 	}
+
+	return false;
 }
 
 int main() {
