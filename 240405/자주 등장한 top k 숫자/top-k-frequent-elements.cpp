@@ -4,7 +4,7 @@
 #include <algorithm>
 using namespace std;
 
-bool cmp(pair<int, int> a, pair<int, int> b) {
+bool cmp(pair<long long, long long> a, pair<long long, long long> b) {
 	if (a.second < b.second) {
 		return true;
 	}
@@ -26,15 +26,15 @@ bool cmp(pair<int, int> a, pair<int, int> b) {
 
 int main() {
 	int n, k; cin >> n >> k;
-	vector<int> v(n);
-	unordered_map<int, int> map;
+	vector<long long> v(n);
+	unordered_map<long long, long long> map;
 
 	for (int i = 0; i < n; i++) {
 		cin >> v[i];
 		map[v[i]]++;
 	}
 
-	vector<pair<int, int>> temp(map.begin(), map.end());
+	vector<pair<long long, long long>> temp(map.begin(), map.end());
 	sort(temp.begin(), temp.end(), cmp);
 
 	for (int i = temp.size() - 1; i >= temp.size() - k; i--) {
