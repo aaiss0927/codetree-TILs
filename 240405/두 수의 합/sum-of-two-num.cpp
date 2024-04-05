@@ -5,26 +5,23 @@ using namespace std;
 
 int main() {
 	int n, k; cin >> n >> k;
-	vector<int> v;
+	vector<int> v(n);
 	unordered_map<int, int> map;
 
 	for (int i = 0; i < n; i++) {
-		int num; cin >> num;
-		v.push_back(num);
-		map[i] = 0;
-	}
-
-	for (int i = 0; i < n; i++) {
-		for (int j = i + 1; j < n; j++) {
-			if (v[j] == k - v[i]) {
-				map[i]++;
-			}
-		}
+		cin >> v[i];
 	}
 
 	int cnt = 0;
+
 	for (int i = 0; i < n; i++) {
-		cnt += map[i];
+		int target = k - v[i];
+
+		if (map.find(target) != map.end()) {
+			cnt += map[target];
+		}
+
+		map[v[i]]++;
 	}
 
 	cout << cnt;
