@@ -4,7 +4,7 @@
 #include <algorithm>
 using namespace std;
 
-bool cmp(pair<long long, long long> a, pair<long long, long long> b) {
+bool cmp(pair<long long, long long>& a, pair<long long, long long>& b) {
 	if (a.second < b.second) {
 		return true;
 	}
