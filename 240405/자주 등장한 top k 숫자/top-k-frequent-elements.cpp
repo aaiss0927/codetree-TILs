@@ -22,7 +22,7 @@ int main() {
 
 	sort(temp.begin(), temp.end());
 
-	for (int i = temp.size() - 1; i >= temp.size() - k; i--) {
+	for (int i = (int)temp.size() - 1; i >= (int)temp.size() - k; i--) {
 		cout << temp[i].second << " ";
 	}
 }
