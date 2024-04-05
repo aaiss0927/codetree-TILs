@@ -6,7 +6,7 @@ using namespace std;
 int main() {
 	int n, k; cin >> n >> k;
 	vector<long long> v(n);
-	unordered_map<long long, int> map;
+	unordered_map<long long, long long> map;
 
 	for (int i = 0; i < n; i++) {
 		cin >> v[i];
@@ -14,7 +14,7 @@ int main() {
 	}
 
 	while (k--) {
-		int max_count = 0;
+		long long max_count = 0;
 		long long max_elemt = 0;
 
 		for (int i = n - 1; i >= 0; i--) {
