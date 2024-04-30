@@ -13,24 +13,23 @@ int main() {
 	int x, y; x = y = 0;
 	string cmd; cin >> cmd;
 
-	for (int i = 0; i < cmd.size(); i++) {
-		int nx, ny;
-		nx = x; ny = y;
-		
+	for (int i = 0; i < cmd.size(); i++) {		
 		if (cmd[i] == 'L') {
 			dir--;
+			if (dir < 0)
+				dir += 4;
 		}
 
 		else if (cmd[i] == 'R') {
 			dir++;
+			if (dir >= 4)
+				dir -= 4;
 		}
 
 		else if (cmd[i] == 'F') {
-			nx = x + dx[(dir + 4) % 4];
-			ny = y + dy[(dir + 4) % 4];
+			x += dx[dir];
+			y += dy[dir];
 		}
-
-		x = nx; y = ny;
 	}
 
 	cout << x << ' ' << y;
