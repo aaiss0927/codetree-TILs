@@ -27,7 +27,10 @@ int main() {
 			}
 		}
 
-		dp[i] = min + 1;
+		if (min == INT_MAX)
+			dp[i] = INT_MAX;
+		else
+			dp[i] = min + 1;
 	}
 
 	if (dp[m] == INT_MAX)
