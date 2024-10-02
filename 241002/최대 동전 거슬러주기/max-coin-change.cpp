@@ -17,10 +17,15 @@ int main() {
 		cin >> coin[i];
 
 	for (int i = 1; i <= m; i++) {
+		int max = INT_MIN;
+
 		for (int j = 0; j < n; j++) {
-			if (i >= coin[j] && dp[i - coin[j]] > dp[i])
-				dp[i] = dp[i - coin[j]] + 1;
+			if (i >= coin[j] && dp[i - coin[j]] > max)
+				max = dp[i - coin[j]];
 		}
+
+		if (max != INT_MIN)
+			dp[i] = max + 1;
 	}
 
 	if (dp[m] == INT_MIN)
