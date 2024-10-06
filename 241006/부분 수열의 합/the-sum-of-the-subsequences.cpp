@@ -28,7 +28,7 @@ int main() {
     }
 
     if (dp[n][m])
-        cout << "YES";
+        cout << "Yes";
     else
-        cout << "NO";
+        cout << "No";
 }
