@@ -1,22 +1,13 @@
 n, m = map(int, input().split())
-answer = []
-is_used = [False for _ in range(0, n + 1)]
 
-def choose(cur, start):
+def choose(cur, lower_bound, answer = []):
     if cur == m:
-        for a in answer:
-            print(a, end=' ')
-        print()
+        print(*answer)
         return
     
-    for i in range(start, n + 1):
-        if is_used[i]:
-            continue
-
-        is_used[i] = True
+    for i in range(lower_bound, n + 1):
         answer.append(i)
         choose(cur + 1, i + 1)
         answer.pop()
-        is_used[i] = False
 
 choose(0, 1)
