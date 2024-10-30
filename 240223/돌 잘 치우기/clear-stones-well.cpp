@@ -52,7 +52,7 @@ void BFS() {
                 q.push({n_x, n_y});
             }
         }
-    }
+    } 
 }
 
 vector<int> v;
@@ -79,10 +79,9 @@ void choose(int next) {
                 cnt_cell++;
                 visited[s_pnts[i].first][s_pnts[i].second] = true;
                 q.push({s_pnts[i].first, s_pnts[i].second});
+                BFS();
             }
         }
-
-        BFS();
         
         ans = max(ans, cnt_cell);
         
@@ -95,7 +94,7 @@ void choose(int next) {
     
     for (int i = next; i < stones.size(); i++) {
         v.push_back(i);
-        choose(i + 1);
+        choose(next + 1);
         v.pop_back();
     } 
 }
