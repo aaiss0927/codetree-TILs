@@ -79,9 +79,10 @@ void choose(int next) {
                 cnt_cell++;
                 visited[s_pnts[i].first][s_pnts[i].second] = true;
                 q.push({s_pnts[i].first, s_pnts[i].second});
-                BFS();
             }
         }
+
+        BFS();
         
         ans = max(ans, cnt_cell);
         
