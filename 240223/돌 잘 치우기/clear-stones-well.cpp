@@ -95,7 +95,7 @@ void choose(int next) {
     
     for (int i = next; i < stones.size(); i++) {
         v.push_back(i);
-        choose(next + 1);
+        choose(i + 1);
         v.pop_back();
     } 
 }
